@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 import uuid
-import models, database, schemas
-from oauth2 import get_current_user
+from app import models, database, schemas
+from app.oauth2 import get_current_user
 
 router = APIRouter(
     tags=['Comments'],

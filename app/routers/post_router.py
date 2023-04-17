@@ -1,10 +1,10 @@
 import os
 import uuid
 from fastapi import APIRouter, File, UploadFile, Depends, HTTPException, status
-from database import engine, Base
-import models, database, schemas
+from app.database import engine, Base
+from app import models, database, schemas
 from sqlalchemy.orm import Session
-from oauth2 import get_current_user
+from app.oauth2 import get_current_user
 from typing import List, Optional
 
 router = APIRouter(

@@ -1,13 +1,15 @@
 from fastapi import APIRouter, Depends, status, HTTPException, status
 from jose import jwt
-import schemas, JWTtoken, database, models
+from app import schemas, JWTtoken, database, models
 from fastapi.security import OAuth2PasswordRequestForm
 from werkzeug.security import check_password_hash
 from sqlalchemy.orm import Session
 
+
 router = APIRouter(
     tags=['Authentcate']
 )
+
 
 
 @router.post('/login')
@@ -22,3 +24,5 @@ def login(request:OAuth2PasswordRequestForm=Depends(), db:Session=Depends(databa
 
     access_token = JWTtoken.create_access_token(data={"sub": user.email})
     return {"access_token": access_token, "token_type": "bearer"}
+
+

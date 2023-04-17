@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-import database, schemas, models
+from app import schemas, models, database
 import uuid
 from werkzeug.security import generate_password_hash
-from oauth2 import get_current_user
+from app.oauth2 import get_current_user
 
 router = APIRouter(
     tags=['Users']
